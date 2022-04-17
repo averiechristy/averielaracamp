@@ -1,58 +1,29 @@
-<!doctype html>
-<html lang="en">
+@include('components.navbar')
+@extends('layouts.app')
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/main.css')}}" type="text/css">
+@section('content')
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <title>Laracamp by BuildWith Angga</title>
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img src="{{asset('image/logo.png')}}" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Program</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Mentor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Business</a>
-                    </li>
-                </ul>
-                <div class="d-flex">
-                    <a href="#" class="btn btn-master btn-secondary me-3">
-                        Sign In
-                    </a>
-                    <a href="#" class="btn btn-master btn-primary">
-                        Sign Up
-                    </a>
-                </div>
+<button id="btn-modal" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="visibility: hidden"></button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Let's join us!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <b>Hi folks!</b> <br>
+                what are you waiting for? get your own class by hit the button below!
+            </div>
+            <div class="modal-footer">
+                <a href="http://joinbwa.com/laravel8" class="btn btn-primary">Let's Go</a>
+            </div>
             </div>
         </div>
-    </nav>
+    </div>
+
+    
 
     <section class="banner">
         <div class="container">
@@ -315,7 +286,7 @@
                                     <div class="clear"></div>
                                 </div>
                                 <p>
-                                    <a href="#" class="btn btn-master btn-primary w-100 mt-3">
+                                    <a href="{{route('checkout')}}" class="btn btn-master btn-primary w-100 mt-3">
                                         Take This Plan
                                     </a>
                                 </p>
@@ -361,7 +332,7 @@
                                     <div class="clear"></div>
                                 </div>
                                 <p>
-                                    <a href="#" class="btn btn-master btn-secondary w-100 mt-3">
+                                    <a href="{{route('checkout')}}" class="btn btn-master btn-secondary w-100 mt-3">
                                         Start With This Plan
                                     </a>
                                 </p>
