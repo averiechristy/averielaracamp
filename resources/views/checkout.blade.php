@@ -1,14 +1,11 @@
-@include('components.navbar')
 @extends('layouts.app')
 
 @section('content')
-
-<section class="checkout">
+    <section class="checkout">
         <div class="container">
             <div class="row text-center pb-70">
                 <div class="col-lg-12 col-12 header-wrap">
                     <p class="story">
-
                         YOUR FUTURE CAREER
                     </p>
                     <h2 class="primary-header">
@@ -21,9 +18,9 @@
                     <div class="row">
                         <div class="col-lg-5 col-12">
                             <div class="item-bootcamp">
-                                <img src="{{asset('image/item_bootcamp.png')}}" alt="" class="cover">
-                                <h1 class="package">
-                                    GILA BELAJAR
+                                <img src="{{asset('images/item_bootcamp.png')}}" alt="" class="cover">
+                                <h1 class="package text-uppercase">
+                                  GILA BELAJAR
                                 </h1>
                                 <p class="description">
                                     Bootcamp ini akan mengajak Anda untuk belajar penuh mulai dari pengenalan dasar sampai membangun sebuah projek asli
@@ -32,7 +29,7 @@
                         </div>
                         <div class="col-lg-1 col-12"></div>
                         <div class="col-lg-6 col-12">
-                            <form action="{{route('success-checkout')}}" class="basic-form">
+                        <form action="{{route('success-checkout')}}" class="basic-form">
                             <form action="#" class="basic-form">
                                 <div class="mb-4">
                                     <label for="exampleInputEmail1" class="form-label">Full Name</label>
@@ -73,3 +70,4 @@
             </div>
         </div>
     </section>
+@endsection
