@@ -18,7 +18,7 @@
                     <p>
                         Silahkan menuju halaman Dashboard dan lakukan pembayaran
                     </p>
-                    <a href="#" class="btn btn-primary mt-3">
+                    <a href="{{route('dashboard')}}" class="btn btn-primary mt-3">
                         My Dashboard
                     </a>
                 </div>
