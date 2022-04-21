@@ -33,7 +33,7 @@ class CheckoutController extends Controller
         
         if ($camp->isRegistered) {
             $request->session()->flash('error', "You already registered on {$camp->title} camp.");
-            return redirect(route('dashboard'));
+            return redirect(route('user.dashboard'));
         }
 
         return view('checkout.create', [
@@ -121,7 +121,5 @@ class CheckoutController extends Controller
         return view('checkout.success');
     }
 
-    public function invoice(Checkout $checkout){
-        return $checkout;
-    }
+
 }
