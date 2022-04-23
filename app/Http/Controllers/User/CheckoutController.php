@@ -71,6 +71,8 @@ class CheckoutController extends Controller
         $user->email = $data['email'];
         $user->name = $data['name'];
         $user->occupation = $data['occupation'];
+        $user->phone = $data['phone'];
+        $user->address = $data['address'];
         $user->save();
 
         // create checkout
@@ -80,6 +82,7 @@ class CheckoutController extends Controller
         //sending email
         Mail::to(Auth::user()->email)->send(new AfterCheckout($checkout));
 
+        
         return redirect(route('checkout.success'));
     }
 
@@ -180,7 +183,7 @@ public function getSnapRedirect(Checkout $checkout)
             // Get Snap Payment Page URL
             $paymentUrl = \Midtrans\Snap::createTransaction($midtrans_params)->redirect_url;
             $checkout->midtrans_url = $paymentUrl;
-            $checkout->total = $total;
+            
             $checkout->save();
 
             return $paymentUrl;
@@ -191,8 +194,9 @@ public function getSnapRedirect(Checkout $checkout)
 
     public function midtransCallback(Request $request)
     {
+       
         $notif = $request->method() == 'POST' ? new Midtrans\Notification() : Midtrans\Transaction::status($request->order_id);
-
+        
         $transaction_status = $notif->transaction_status;
         $fraud = $notif->fraud_status;
 
@@ -235,8 +239,9 @@ public function getSnapRedirect(Checkout $checkout)
             // TODO set payment status in merchant's database to 'expire'
             $checkout->payment_status = 'failed';
         }
-
+        
         $checkout->save();
-        return view('checkout/success');
+    dd($checkout);
+//        return view('checkout/success');
     }
 }
